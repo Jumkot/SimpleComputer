@@ -8,7 +8,7 @@ APP_NAME = simplecomputer
 
 BUILD_DIR = build
 
-all: link run
+all: link
 	
 link: project
 	$(CC) console/$(BUILD_DIR)/console.a $(FLAGS) $(APP_NAME)
