@@ -1,7 +1,7 @@
 #include "mySimpleComputer.h"
 
 int
-sc_memoryInit ()
+sc_memoryInit (void)
 {
   for (int i = 0; i < SIZE; i++)
     {
