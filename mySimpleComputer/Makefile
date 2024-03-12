@@ -1,6 +1,4 @@
 #testMakefile for mySimpleComputer
-DIR_NAME = mySimpleComputer
-PART_NAME = test
 
 CC = gcc
 
@@ -13,13 +11,13 @@ PART_OBJECTS = $(patsubst %.c, %.o, $(PART_SOURCES))
 
 all: $(LIB_NAME)	
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c -I../include $(FLAGS) $@ $^
+
 $(LIB_NAME): $(PART_OBJECTS)
 	ar rcs $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o -I../include $<
-
 clean:
-	rm -rf *.[ao]
+	rm -rf $(LIB_NAME) $(PART_OBJECTS)
 
 .PHONY: all clean 

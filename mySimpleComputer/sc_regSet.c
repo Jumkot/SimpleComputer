@@ -8,8 +8,7 @@ sc_regSet (int reg, int value)
       printf ("Ошибка задания регистра - недопустимое значение\n");
       return -1;
     }
-  else if ((reg != ADD) || (reg != ZERO) || (reg != SEGM) || (reg != ACT)
-           || (reg != COMMAND))
+  else if ((reg != P) || (reg != O) || (reg != M) || (reg != T) || (reg != E))
     {
       printf ("Ошибка задания регистра - недопустимое имя регистра\n");
       return -1;

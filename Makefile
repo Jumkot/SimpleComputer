@@ -15,18 +15,18 @@ all: link
 	
 link: project
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(APP_OBJECT) $(APP_PATH)
-	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT) -Lconsole -LmySimpleComputer -lconsole -lmySimpleComputer
+	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT)
 
 project:
-	cd console/ && $(MAKE)
-#cd mySimpleComputer/ && $(MAKE)
+	make -C console/
+	make -C mySimpleComputer/
 
 run:
-	./$(APP_NAME)
+	./$(APP)
 
 clean:
-	cd console/ && make clean
-#cd mySimpleComputer/ && make clean
-	rm -rf simplecomputer
+	make clean -C console/
+	make clean -C mySimpleComputer/
+	rm -rf $(APP) $(APP_OBJECT)
 
 .PHONY: all clean 

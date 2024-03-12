@@ -4,7 +4,7 @@
 
 #define SIZE 128
 
-extern int ram[RAM_SIZE];
+extern int ram[SIZE];
 
 extern int accumulator;
 extern int instruction_counter;

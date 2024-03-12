@@ -1,21 +1,23 @@
-#Makefile for console
-DIR_NAME = console
-PART_NAME = test
+#testMakefile for console
 
 CC = gcc
 
 CFLAGS = -Wall -Werror 
 FLAGS = -o
 
-all: $(DIR_NAME).a
+LIB_NAME = lib_console.a
+PART_SOURCES = $(wildcard *.c)
+PART_OBJECTS = $(patsubst %.c, %.o, $(PART_SOURCES))
 
-$(DIR_NAME).a: $(PART_NAME).o
-	ar cr $(DIR_NAME).a $(PART_NAME).o
+all: $(LIB_NAME)	
 
-$(PART_NAME).o: $(PART_NAME).c
-	$(CC) $(CFLAGS) -c $(PART_NAME).c $(FLAGS) $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c -I../include $(FLAGS) $@ $^
+
+$(LIB_NAME): $(PART_OBJECTS)
+	ar rcs $@ $^
 
 clean:
-	rm -rf *.[ao]
+	rm -rf $(LIB_NAME) $(PART_OBJECTS)
 
 .PHONY: all clean 
