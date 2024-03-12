@@ -1,9 +1,9 @@
-#include "mySimpleComputer.h"
+#include <mySimpleComputer.h>
 
 int
 sc_accumulatorInit (void)
 {
-  registr = registr & 0;
+  accumulator = 0;
 
   return 0;
 }

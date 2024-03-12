@@ -1,4 +1,4 @@
-#include "mySimpleComputer.h"
+#include <mySimpleComputer.h>
 
 #define SIZE 128
 

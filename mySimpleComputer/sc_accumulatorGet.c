@@ -1,12 +1,14 @@
-#include "mySimpleComputer.h"
+#include <mySimpleComputer.h>
 
 int
 sc_accumulatorGet (int *value)
 {
-  // Разрядность аккумулятора равна 15 бит => 2^15
-  if (value >= 0 && value < 32768)
+  if (value)
     {
       *value = accumulator;
+      return 0;
     }
-  return 0;
+
+  printf ("Ошибка получения аккумулятора - недопустимое значение\n");
+  return -1;
 }
