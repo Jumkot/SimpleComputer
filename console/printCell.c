@@ -12,7 +12,7 @@ printCell (int address)
   sc_commandDecode (value, &sign, &command, &operand);
 
   char sign_c;
-  if (sign)
+  if (!sign)
     {
       sign_c = '+';
     }

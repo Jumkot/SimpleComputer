@@ -9,13 +9,13 @@ APP_OBJECT = console/pr01.o
 APP_PATH = console/pr01.c
 
 INCLUDE = include
-LIB_SC = mySimpleComputer/lib_sc.a
+LIB_SC = mySimpleComputer/libsc.a
 
 all: link
 	
 link: project
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(APP_OBJECT) $(APP_PATH)
-	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT)
+	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT) -Lconsole -LmySimpleComputer -lconsole -lsc
 
 project:
 	make -C console/

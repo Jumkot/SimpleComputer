@@ -2,10 +2,10 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror 
+CFLAGS = -Wall -Werror
 FLAGS = -o
 
-LIB_NAME = lib_console.a
+LIB_NAME = libconsole.a
 PART_SOURCES = $(wildcard *.c)
 PART_OBJECTS = $(patsubst %.c, %.o, $(PART_SOURCES))
 

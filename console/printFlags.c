@@ -15,5 +15,5 @@ printFlags (void)
           str[2 * i] = '_';
         }
     }
-  printf ("Значения флагов: %s", str);
+  printf ("Значения флагов: %s\n", str);
 }
