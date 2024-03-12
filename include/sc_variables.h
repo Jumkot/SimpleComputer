@@ -1,5 +1,6 @@
 #ifndef SC_VARIABLES_H
 #define SC_VARIABLS_H
+
 #include <mySimpleComputer.h>
 
 #define SIZE 128

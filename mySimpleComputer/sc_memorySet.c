@@ -8,7 +8,7 @@ sc_memorySet (int address, int value)
       printf ("Ошибка задания ячейки памяти - недопустимый адрес\n");
       return -1;
     }
-  else if (value < 0 || value > 32767)
+  else if (value < 0 || value >= 32767)
     {
       printf ("Ошибка задания ячейки памяти - недопустимое значение\n");
       return -1;

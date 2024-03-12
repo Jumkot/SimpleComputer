@@ -1,9 +1,9 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+#include <mySimpleComputer.h>
 #include <stdio.h>
 #include <string.h>
-#include <mySimpleComputer.h>
 
 void printCell (int address);
 void printFlags (void);
