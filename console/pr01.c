@@ -44,8 +44,8 @@ main ()
   int command = 0;
   int operand = 0;
 
-  sc_commandDecode(0xffff, &sign, &command, &operand);
-  printf("\n%d %d %d\n", sign, command, operand);
+  sc_commandDecode (0xffff, &sign, &command, &operand);
+  printf ("\n%d %d %d\n", sign, command, operand);
 
   return 0;
 }
