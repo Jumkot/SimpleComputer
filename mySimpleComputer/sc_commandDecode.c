@@ -8,7 +8,7 @@ sc_commandDecode (int value, int *sign, int *command, int *operand)
       return -1;
     }
 
-  *sign = value >> 14;
+  *sign = (value >> 14) & 0x1;
   *command = (value >> 7) & 0x7f;
   *operand = value & 0x7f;
 

@@ -18,6 +18,9 @@ main ()
     }
   printf ("\n");
 
+  sc_memorySave ("test.bin");
+  sc_memoryLoad ("test.bin");
+
   printf ("%d\n\n", sc_memorySet (25, -2));
 
   sc_regSet (P, 1);
@@ -36,6 +39,13 @@ main ()
   int value = 0;
   sc_commandEncode (0, 0x32, 1, &value);
   printDecodedCommand (value);
+
+  int sign = 0;
+  int command = 0;
+  int operand = 0;
+
+  sc_commandDecode(0xffff, &sign, &command, &operand);
+  printf("\n%d %d %d\n", sign, command, operand);
 
   return 0;
 }

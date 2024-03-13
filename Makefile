@@ -27,6 +27,6 @@ run:
 clean:
 	make clean -C console/
 	make clean -C mySimpleComputer/
-	rm -rf $(APP) $(APP_OBJECT)
+	rm -rf $(APP) $(APP_OBJECT) *.bin
 
 .PHONY: all clean 
