@@ -1,11 +1,10 @@
-#testMakefile for mySimpleComputer
-
+#testMakefile for myTerm
 CC = gcc
 
 CFLAGS = -Wall -Werror
 FLAGS = -o
 
-LIB_NAME = libmsc.a
+LIB_NAME = libmt.a
 PART_SOURCES = $(wildcard *.c)
 PART_OBJECTS = $(patsubst %.c, %.o, $(PART_SOURCES))
 
