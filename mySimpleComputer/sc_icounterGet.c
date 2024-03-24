@@ -9,6 +9,5 @@ sc_icounterGet (int *value)
       return 0;
     }
 
-  printf ("Ошибка получения счётчика - недопустимое значение\n");
   return -1;
 }

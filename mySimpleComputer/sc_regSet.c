@@ -3,14 +3,8 @@
 int
 sc_regSet (int reg, int value)
 {
-  if ((value != 0) && (value != 1))
+  if ((value != 0) && (value != 1) && (reg != P) && (reg != O) && (reg != M) && (reg != T) && (reg != E))
     {
-      printf ("Ошибка задания регистра - недопустимое значение\n");
-      return -1;
-    }
-  else if ((reg != P) && (reg != O) && (reg != M) && (reg != T) && (reg != E))
-    {
-      printf ("Ошибка задания регистра - недопустимое имя регистра\n");
       return -1;
     }
 

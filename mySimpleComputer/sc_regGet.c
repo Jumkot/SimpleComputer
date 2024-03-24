@@ -5,7 +5,6 @@ sc_regGet (int reg, int *value)
 {
   if ((reg != P) && (reg != O) && (reg != M) && (reg != T) && (reg != E))
     {
-      printf ("Ошибка получения регистра - недопустимое значение\n");
       return -1;
     }
 

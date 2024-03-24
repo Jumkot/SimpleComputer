@@ -8,6 +8,5 @@ sc_commandValidate (int command)
       return 0;
     }
 
-  printf ("Недопустимая команда\n");
   return -1;
 }

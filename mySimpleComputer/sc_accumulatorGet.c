@@ -9,6 +9,5 @@ sc_accumulatorGet (int *value)
       return 0;
     }
 
-  printf ("Ошибка получения аккумулятора - недопустимое значение\n");
   return -1;
 }

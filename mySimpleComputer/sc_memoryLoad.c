@@ -9,15 +9,13 @@ sc_memoryLoad (char *filename)
 
   if (!file)
     {
-      printf ("Ошибка загрузки - не удалось открыть файл\n");
       return -1;
     }
 
   if (fread (buffer, sizeof (int), SIZE, file) != SIZE)
     {
-      printf ("Ошибка загрузки - не удалось записать в файл\n");
       fclose (file);
-      return 0;
+      return -1;
     }
   for (int i = 0; i < SIZE; i++)
     {

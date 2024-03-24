@@ -7,14 +7,12 @@ sc_memorySave (char *filename)
 
   if (!file)
     {
-      printf ("Ошибка сохранения - не удалось открыть файл\n");
       return -1;
     }
   if (fwrite (ram, sizeof (int), SIZE, file) != SIZE)
     {
-      printf ("Ошибка сохранения - не удалось прочитать файл\n");
       fclose (file);
-      return 0;
+      return -1;
     }
 
   fclose (file);
