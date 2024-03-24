@@ -4,9 +4,9 @@ CC = gcc
 CFLAGS = -Wall -Werror
 FLAGS = -o
 
-APP = console/pr01
-APP_OBJECT = console/pr01.o
-APP_PATH = console/pr01.c
+APP = console/test
+APP_OBJECT = console/test.o
+APP_PATH = console/test.c
 
 INCLUDE = include
 LIB_MSC = mySimpleComputer/libmsc.a

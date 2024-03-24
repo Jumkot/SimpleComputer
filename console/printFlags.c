@@ -3,7 +3,7 @@
 void
 printFlags (void)
 {
-  char str[30] = "P 0 M T E";
+  char string[30] = "P 0 M T E";
 
   for (int i = 0, k = 1; i < 5; ++i, k *= 2)
     {
@@ -12,8 +12,11 @@ printFlags (void)
 
       if (value == 0)
         {
-          str[2 * i] = '_';
+          string[2 * i] = '_';
         }
     }
-  printf ("Значения флагов: %s\n", str);
+  printf ("Значения флагов: %s\n", string);
+
+  mt_gotoXY (2, 90);
+  write (1, string, 10);
 }
