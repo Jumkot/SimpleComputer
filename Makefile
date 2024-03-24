@@ -4,9 +4,9 @@ CC = gcc
 CFLAGS = -Wall -Werror
 FLAGS = -o
 
-APP = console/test
-APP_OBJECT = console/test.o
-APP_PATH = console/test.c
+APP = console/console
+APP_OBJECT = console/console.o
+APP_PATH = console/console.c
 
 INCLUDE = include
 LIB_MSC = mySimpleComputer/libmsc.a

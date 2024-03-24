@@ -15,8 +15,7 @@ printFlags (void)
           string[2 * i] = '_';
         }
     }
-  printf ("Значения флагов: %s\n", string);
 
   mt_gotoXY (2, 90);
-  write (1, string, 10);
+  write (1, string, 9);
 }

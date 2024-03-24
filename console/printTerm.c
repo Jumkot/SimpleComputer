@@ -5,12 +5,6 @@ static int history[5];
 void
 printTerm (int address, int input)
 {
-  //   char string[50] = '\0';
-
-  //   for (int i = 0; i < BUFF; i++)
-  //     {
-  //       str[BUFF] = '\000';
-  //     }
   int value = 0;
   int sign = 0;
   int command = 0;
@@ -25,14 +19,13 @@ printTerm (int address, int input)
   if (input)
     {
       length = sprintf (string, "%s%s%d>     ", (address < 100) ? "0" : "",
-                            (address < 10) ? "0" : "", address);
+                        (address < 10) ? "0" : "", address);
     }
   else
     {
-      length
-          = sprintf (string, "%s%s%d>%c%.2x%.2x", (address < 100) ? "0" : "",
-                     (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
-                     command, operand);
+      length = sprintf (string, "%s%s%d>%c%.2x%.2x", (address < 100) ? "0" : "",
+                        (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
+                        command, operand);
     }
 
   for (int i = 4; i > 0; i--)
@@ -51,8 +44,8 @@ printTerm (int address, int input)
       sc_commandDecode (value, &sign, &command, &operand);
 
       length = sprintf (string, "%s%s%d>%c%.2x%.2x", (address < 100) ? "0" : "",
-                     (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
-                     command, operand);
+                        (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
+                        command, operand);
 
       mt_gotoXY (24 - i, 68);
       write (1, string, length);

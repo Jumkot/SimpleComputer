@@ -15,14 +15,25 @@ printCommand (void)
 
   if (sc_commandDecode (value, &sign, &command, &operand) != 0)
     {
-        int length = sprintf (string, "! + FF : FF");
-        mt_gotoXY (5, 92);
-        write (1, string, length);
+      int length = sprintf (string, "! + FF : FF");
+      mt_gotoXY (5, 92);
+      write (1, string, length);
     }
-    else
+  else
     {
-        int length = sprintf (string, "%c %2.x : %2.x", sign, command, operand);
-        mt_gotoXY (5, 94);
-        write (1, string, length);
+      if (command > 15)
+        {
+          int length
+              = sprintf (string, "%c 00 : %2.x", (sign) ? '-' : '+', command);
+          mt_gotoXY (5, 94);
+          write (1, string, length);
+        }
+      else
+        {
+          int length = sprintf (string, "%c 00 : %s%1.x", (sign) ? '-' : '+',
+                                "0", command);
+          mt_gotoXY (5, 94);
+          write (1, string, length);
+        }
     }
 }

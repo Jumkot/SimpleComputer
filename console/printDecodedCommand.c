@@ -13,9 +13,9 @@ printDecodedCommand (int value)
     }
 
   char string[61];
-  sprintf (string, "dec: %.5d | oct: %.5o | hex: %.4x | bin: %s", value, value,
-           value, bin);
+  int length = sprintf (string, "dec: %.5d | oct: %.5o | hex: %.4x | bin: %s",
+                        value, value, value, bin);
 
   mt_gotoXY (17, 2);
-  write (1, string, 60);
+  write (1, string, length);
 }
