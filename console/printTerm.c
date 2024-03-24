@@ -23,9 +23,9 @@ printTerm (int address, int input)
     }
   else
     {
-      length = sprintf (string, "%s%s%d>%c%.2x%.2x", (address < 100) ? "0" : "",
-                        (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
-                        command, operand);
+      length = sprintf (string, "%s%s%d>%c%.2x%.2x",
+                        (address < 100) ? "0" : "", (address < 10) ? "0" : "",
+                        address, (sign) ? '-' : '+', command, operand);
     }
 
   for (int i = 4; i > 0; i--)
@@ -43,9 +43,9 @@ printTerm (int address, int input)
       sc_memoryGet (history[i], &value);
       sc_commandDecode (value, &sign, &command, &operand);
 
-      length = sprintf (string, "%s%s%d>%c%.2x%.2x", (address < 100) ? "0" : "",
-                        (address < 10) ? "0" : "", address, (sign) ? '-' : '+',
-                        command, operand);
+      length = sprintf (string, "%s%s%d>%c%.2x%.2x",
+                        (address < 100) ? "0" : "", (address < 10) ? "0" : "",
+                        address, (sign) ? '-' : '+', command, operand);
 
       mt_gotoXY (24 - i, 68);
       write (1, string, length);

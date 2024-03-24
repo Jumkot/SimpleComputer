@@ -3,7 +3,8 @@
 int
 sc_regSet (int reg, int value)
 {
-  if ((value != 0) && (value != 1) && (reg != P) && (reg != O) && (reg != M) && (reg != T) && (reg != E))
+  if ((value != 0) && (value != 1) && (reg != P) && (reg != O) && (reg != M)
+      && (reg != T) && (reg != E))
     {
       return -1;
     }
