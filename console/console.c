@@ -18,7 +18,8 @@ main ()
   if (rows < 26 || cols < 108)
     {
       char string[80];
-      int length = snprintf (string, 80, "Ошибка: недостаточный размер терминала\n");
+      int length
+          = snprintf (string, 80, "Ошибка: недостаточный размер терминала\n");
       write (1, string, length);
       exit (0);
     }

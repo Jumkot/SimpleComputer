@@ -8,12 +8,12 @@ mt_setcursorvisible (int value)
 
   if (value == 0)
     {
-      int length = snprintf (string,  16, "\E[?25l");
+      int length = snprintf (string, 16, "\E[?25l");
       result = write (1, string, length);
     }
   else if (value == 1)
     {
-      int length = snprintf (string,  16, "\E[?12h");
+      int length = snprintf (string, 16, "\E[?12h");
       result = write (1, string, length);
     }
   else

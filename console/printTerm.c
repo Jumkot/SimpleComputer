@@ -18,16 +18,14 @@ printTerm (int address, int input)
 
   if (input)
     {
-      length = snprintf (string, 50, "%s%x>      ",
-                        (address < 16) ? "0" : "",
-                         address);
+      length = snprintf (string, 50, "%s%x>      ", (address < 16) ? "0" : "",
+                          address);
     }
   else
     {
-      length
-          = snprintf (string, 50, "%s%x> %c%.2x%.2x",
-                      (address < 16) ? "0" : "",
-                      address, (sign) ? '-' : '+', command, operand);
+      length = snprintf (string, 50, "%s%x> %c%.2x%.2x",
+                         (address < 16) ? "0" : "", address,
+                         (sign) ? '-' : '+', command, operand);
     }
 
   for (int i = 4; i > 0; i--)
@@ -45,9 +43,9 @@ printTerm (int address, int input)
       sc_memoryGet (history[i], &value);
       sc_commandDecode (value, &sign, &command, &operand);
 
-      length
-          = snprintf (string, 50, "%s%x> %c%.2x%.2x", (address < 16) ? "0" : "",
-                      address, (sign) ? '-' : '+', command, operand);
+      length = snprintf (string, 50, "%s%x> %c%.2x%.2x",
+                         (address < 16) ? "0" : "", address,
+                         (sign) ? '-' : '+', command, operand);
 
       mt_gotoXY (24 - i, 68);
       write (1, string, length);

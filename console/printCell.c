@@ -18,11 +18,13 @@ printCell (int address, enum colors fg, enum colors bg)
   int length;
   if (address % 10 == 9)
     {
-      length = snprintf (string, 50, "%c%.2x%.2x", (sign) ? '-' : '+', command, operand);
+      length = snprintf (string, 50, "%c%.2x%.2x", (sign) ? '-' : '+', command,
+                         operand);
     }
   else
     {
-      length = snprintf (string, 50, "%c%.2x%.2x ", (sign) ? '-' : '+', command, operand);
+      length = snprintf (string, 50, "%c%.2x%.2x ", (sign) ? '-' : '+',
+                         command, operand);
     }
 
   int y = address % 10 * 6 + 2;
