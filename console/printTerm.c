@@ -19,7 +19,7 @@ printTerm (int address, int input)
   if (input)
     {
       length = snprintf (string, 50, "%s%x>      ", (address < 16) ? "0" : "",
-                          address);
+                         address);
     }
   else
     {
