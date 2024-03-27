@@ -12,8 +12,8 @@ printDecodedCommand (int value)
       bin[15 - i - 1] = ((tmp >> i) & 1) + '0';
     }
 
-  char string[61];
-  int length = sprintf (string, "dec: %.5d | oct: %.5o | hex: %.4x | bin: %s",
+  char string[65];
+  int length = snprintf (string, 65, "dec: %.5d | oct: %.5o | hex: %.4x | bin: %s",
                         value, value, value, bin);
 
   mt_gotoXY (17, 2);

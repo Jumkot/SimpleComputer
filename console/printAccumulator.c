@@ -12,7 +12,7 @@ printAccumulator (void)
   char string[21];
 
   sc_commandDecode (value, &sign, &command, &operand);
-  int length = sprintf (string, "sc: %c%.2x%.2x hex: %.4x", (sign) ? '-' : '+',
+  int length = snprintf (string, 50, "sc: %c%.2x%.2x hex: %.4x", (sign) ? '-' : '+',
                         command, operand, value);
 
   mt_gotoXY (2, 64);

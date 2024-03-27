@@ -9,7 +9,7 @@ mt_setbgcolor (enum colors color)
     }
 
   char string[16];
-  int length = sprintf (string, "\E[48;5;%dm", color);
+  int length = snprintf (string, 16, "\E[48;5;%dm", color);
   int result = write (1, string, length);
 
   return result > 0 ? 0 : -1;
