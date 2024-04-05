@@ -2,7 +2,7 @@
 #define CONSOLE_H
 
 #include <c_variables.h>
-#include "myBigChar.h"
+#include <myBigChar.h>
 #include <mySimpleComputer.h>
 #include <stdio.h>
 #include <stdlib.h>
