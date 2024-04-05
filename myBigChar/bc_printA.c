@@ -9,7 +9,7 @@ bc_printA (char *str)
       write (1, EXIT_ACS, strlen (EXIT_ACS));
       return -1;
     }
-  write(1, EXIT_ACS, strlen (EXIT_ACS));
+  write (1, EXIT_ACS, strlen (EXIT_ACS));
 
   return 0;
 }
