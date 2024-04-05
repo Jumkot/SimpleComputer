@@ -17,6 +17,10 @@ all: $(LIB_NAME)
 $(LIB_NAME): $(PART_OBJECTS)
 	ar rcs $@ $^
 
+# font.bin: font.o
+# 	$(CC) $(CFLAGS) font.o -I../include $(FLAGS) font -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -lconsole -lmsc -lmt -lmbc
+# 	./font
+
 clean:
 	rm -rf $(LIB_NAME) $(PART_OBJECTS)
 

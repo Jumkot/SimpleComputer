@@ -3,7 +3,7 @@
 void
 printFlags (void)
 {
-  char string[30] = "P 0 M T E";
+  char string[30] = "P  0  M  T  E";
 
   for (int i = 0, k = 1; i < 5; ++i, k *= 2)
     {
@@ -12,10 +12,10 @@ printFlags (void)
 
       if (value == 0)
         {
-          string[2 * i] = '_';
+          string[3 * i] = '_';
         }
     }
 
-  mt_gotoXY (2, 90);
-  write (1, string, 9);
+  mt_gotoXY (2, 91);
+  write (1, string, 13);
 }
