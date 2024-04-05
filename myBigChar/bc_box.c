@@ -31,8 +31,8 @@ bc_box (int x1, int y1, int x2, int y2, enum colors box_fg, enum colors box_bg,
   bc_printA (R_BTM);
 
   if (bc_strlen (header))
-     {
-      length = length/2 + 1;
+    {
+      length = length / 2 + 1;
       mt_setfgcolor (header_fg);
       mt_setbgcolor (header_bg);
 
@@ -47,7 +47,7 @@ bc_box (int x1, int y1, int x2, int y2, enum colors box_fg, enum colors box_bg,
       int header_y = y1 + (y2 / 2) - length / 2;
       mt_gotoXY (x1, header_y);
       bc_printA (header_print);
-  }
+    }
 
   mt_setdefaultcolor ();
   return 0;
