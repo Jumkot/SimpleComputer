@@ -1,13 +1,14 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+#include <c_variables.h>
 #include "myBigChar.h"
 #include <mySimpleComputer.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int big_load[36];
+extern int big_load[36];
 
 void printCell (int address, enum colors fg, enum colors bg);
 void printFlags (void);
