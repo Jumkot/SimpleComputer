@@ -1,5 +1,6 @@
 #include "myBigChar.h"
 
+int
 bc_box (int x1, int y1, int x2, int y2, enum colors box_fg, enum colors box_bg,
         char *header, enum colors header_fg, enum colors header_bg)
 {
@@ -32,7 +33,6 @@ bc_box (int x1, int y1, int x2, int y2, enum colors box_fg, enum colors box_bg,
 
   if (bc_strlen (header))
     {
-      length = length / 2 + 1;
       mt_setfgcolor (header_fg);
       mt_setbgcolor (header_bg);
 
