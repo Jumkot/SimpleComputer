@@ -15,7 +15,7 @@ bc_printbigchar (int *big, int x, int y, enum colors fgcolor,
           bc_getbigcharpos (big, i, j, &value);
           if (value)
             {
-              bc_printA ("a");
+              bc_printA (ACS_CKBOARD);
             }
           else
             {
