@@ -9,6 +9,7 @@
 #include <string.h>
 
 extern int big_load[36];
+extern int now_ram_cell;
 
 void printCell (int address, enum colors fg, enum colors bg);
 void printFlags (void);

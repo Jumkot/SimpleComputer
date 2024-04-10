@@ -11,7 +11,7 @@ printBigCell (void)
   int command = 0;
   int operand = 0;
 
-  sc_icounterGet (&value);
+  sc_memoryGet (now_ram_cell, &value);
   sc_commandDecode (value, &sign, &command, &operand);
   char string[50];
   snprintf (string, 50, "%c%.2x%.2x", (sign) ? '-' : '+', command, operand);
@@ -138,4 +138,13 @@ printBigCell (void)
 
       bc_printbigchar (biggy, x + 1, y + i * 9, WHITE, BLACK);
     }
+
+  char str[100];
+  int length = snprintf (str, 100, "Номер редактируемой ячейки: %s%s%d",
+                         now_ram_cell < 100 ? "0" : "",
+                         now_ram_cell < 10 ? "0" : "", now_ram_cell);
+  mt_gotoXY (17, 64);
+  mt_setbgcolor (BLACK);
+  mt_setfgcolor (BLUE);
+  write (1, str, length);
 }
