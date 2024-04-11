@@ -16,6 +16,7 @@ INCLUDE = include
 LIB_MSC = mySimpleComputer/libmsc.a
 LIB_MT = myTerm/libmt.a
 LIB_MT = myBigChar/libmbc.a
+LIB_MT = myReadKey/libmrk.a
 
 all: link
 	
@@ -23,13 +24,14 @@ link: project
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(APP_OBJECT) $(APP_PATH)
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(FONT_OBJECT) $(FONT_PATH)
 	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -lconsole -lmsc -lmt -lmbc
-	$(CC) $(CFLAGS) $(FLAGS) ./$(FONT) $(FONT_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -lconsole -lmsc -lmt -lmbc
+	$(CC) $(CFLAGS) $(FLAGS) ./$(FONT) $(FONT_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -LmyReadKey -lconsole -lmsc -lmt -lmbc -lmrk
 
 project:
 	make -C console/
 	make -C mySimpleComputer/
 	make -C myTerm/
 	make -C myBigChar/
+	make -C myReadKey/
 
 run:
 	./console/font
@@ -40,6 +42,7 @@ clean:
 	make clean -C mySimpleComputer/
 	make clean -C myTerm/
 	make clean -C myBigChar/
+	make clean -C myReadKey/
 	rm -rf $(APP) $(FONT) $(FONT_OBJECT) $(APP_OBJECT) *.bin console/*.bin
 
 .PHONY: all clean 

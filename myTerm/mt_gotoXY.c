@@ -3,7 +3,7 @@
 int
 mt_gotoXY (int x, int y)
 {
-  if (x > 999 || y > 999)
+  if (x > 26 || y > 108)
     {
       return -1;
     }
