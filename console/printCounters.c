@@ -7,7 +7,7 @@ printCounters (void)
   char string[50];
 
   sc_icounterGet (&value);
-  int length = snprintf (string, 50, "T: 00     IC: +%.4x", value);
+  int length = snprintf (string, 50, "  T: 00   IC: +%.4x", value);
 
   mt_gotoXY (5, 63);
   write (1, string, length);

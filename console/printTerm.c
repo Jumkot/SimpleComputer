@@ -50,4 +50,5 @@ printTerm (int address, int input)
       mt_gotoXY (24 - i, 68);
       write (1, string, length);
     }
+  mt_gotoXY (26, 1);
 }

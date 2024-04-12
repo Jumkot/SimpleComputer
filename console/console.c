@@ -4,10 +4,23 @@
 int
 main (int argc, char *argv[])
 {
-  sc_memoryInit ();
-  sc_accumulatorInit ();
-  sc_icounterInit ();
-  sc_regInit ();
+  keyReset ();
+
+  /////////////////
+  // Задание значений RAM счётчиком по порядку
+  for (int i = 0; i < SIZE; i++)
+    {
+      int value;
+      sc_commandEncode (0, i, i, &value);
+      sc_memorySet (i, value);
+      printCell (i, WHITE, BLACK);
+
+      printAccumulator ();
+      printCounters ();
+      printFlags ();
+      printCommand ();
+    }
+  ////////////////
 
   int count_load;
 
@@ -38,12 +51,12 @@ main (int argc, char *argv[])
   enum keys key = NONE;
   int value = KEY_SIZE - 1;
 
-  actual_cell = 0;
-
   while (key != EXIT)
     {
       rk_readvalue (&value, 1);
       rk_readkey (&key);
+
+      int input_flag = 0;
 
       char string[10];
       int length = 0;
@@ -116,29 +129,17 @@ main (int argc, char *argv[])
             }
           break;
         case LOAD:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keyLoad ();
           break;
         case SAVE:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keySave ();
           break;
         case RESET:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keyReset ();
           break;
         case RUN:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
           break;
         case STEP:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
           break;
         case EDIT:
           mt_gotoXY (26, 1);
@@ -153,6 +154,7 @@ main (int argc, char *argv[])
         }
 
       printAll ();
+      printTerm (actual_cell, input_flag);
     }
 
   return 0;

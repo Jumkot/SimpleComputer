@@ -27,4 +27,8 @@ void printBoxes (void);
 void printKeys (void);
 void printAll (void);
 
+void keyReset (void);
+void keySave (void);
+void keyLoad (void);
+
 #endif
