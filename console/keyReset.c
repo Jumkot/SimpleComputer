@@ -1,6 +1,7 @@
 #include <console.h>
 
-void keyReset ()
+void
+keyReset ()
 {
   sc_memoryInit ();
   sc_accumulatorInit ();

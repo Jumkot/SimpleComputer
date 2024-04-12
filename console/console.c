@@ -58,19 +58,13 @@ main (int argc, char *argv[])
 
       int input_flag = 0;
 
-      char string[10];
-      int length = 0;
       switch (key)
         {
         case F5:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keyF5 ();
           break;
         case F6:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keyF6 ();
           break;
         case UP:
           if (actual_cell < 8)
@@ -142,9 +136,8 @@ main (int argc, char *argv[])
         case STEP:
           break;
         case EDIT:
-          mt_gotoXY (26, 1);
-          length = snprintf (string, 10, "%d!", key);
-          write (1, string, length);
+          keyEdit ();
+          input_flag = 1;
           break;
         case EXIT:
           mt_gotoXY (27, 1);

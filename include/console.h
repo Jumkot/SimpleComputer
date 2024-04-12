@@ -5,6 +5,7 @@
 #include <myBigChar.h>
 #include <myReadKey.h>
 #include <mySimpleComputer.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,5 +31,8 @@ void printAll (void);
 void keyReset (void);
 void keySave (void);
 void keyLoad (void);
+void keyF5 (void);
+void keyF6 (void);
+void keyEdit (void);
 
 #endif

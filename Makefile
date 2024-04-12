@@ -23,8 +23,8 @@ all: link
 link: project
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(APP_OBJECT) $(APP_PATH)
 	$(CC) $(CFLAGS) -c -I./include $(FLAGS) $(FONT_OBJECT) $(FONT_PATH)
-	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -LmyReadKey -lconsole -lmsc -lmt -lmbc -lmrk
-	$(CC) $(CFLAGS) $(FLAGS) ./$(FONT) $(FONT_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -LmyReadKey -lconsole -lmsc -lmt -lmbc -lmrk
+	$(CC) $(CFLAGS) $(FLAGS) ./$(APP) $(APP_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -LmyReadKey -lconsole -lmsc -lmt -lmbc -lmrk -lm
+	$(CC) $(CFLAGS) $(FLAGS) ./$(FONT) $(FONT_OBJECT) -Lconsole -LmySimpleComputer -LmyTerm -LmyBigChar -LmyReadKey -lconsole -lmsc -lmt -lmbc -lmrk -lm
 
 project:
 	make -C console/
