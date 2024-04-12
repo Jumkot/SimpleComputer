@@ -1,8 +1,8 @@
 #ifndef MYREADKEY_H
 #define MYREADKEY_H
 
-#include <rk_variables.h>
 #include <myTerm.h>
+#include <rk_variables.h>
 #include <string.h>
 #include <termios.h>
 
