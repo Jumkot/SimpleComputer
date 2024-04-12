@@ -56,7 +56,7 @@ main (int argc, char *argv[])
       int value;
       sc_memoryGet (i, &value);
       sc_icounterSet (value);
-      now_ram_cell = i;
+      actual_cell = i;
       printDecodedCommand (value);
       printCounters ();
       printBigCell ();

@@ -9,7 +9,7 @@
 #include <string.h>
 
 extern int big_load[36];
-extern int now_ram_cell;
+extern int actual_cell;
 
 void printCell (int address, enum colors fg, enum colors bg);
 void printFlags (void);
@@ -21,6 +21,8 @@ void printTerm (int address, int input);
 void printCommand (void);
 
 void printBigCell (void);
+void printBoxes (void);
+void printKeys (void);
 void printAll (void);
 
 #endif
