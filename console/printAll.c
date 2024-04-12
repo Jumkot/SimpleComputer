@@ -27,12 +27,13 @@ printAll ()
       sc_commandEncode (0, i, i, &value);
       sc_memoryGet (i, &value);
       printCell (i, WHITE, BLACK);
-      printDecodedCommand (value);
-      printBigCell ();
+      printActualCell ();
       printAccumulator ();
       printCounters ();
       printFlags ();
       printCommand ();
     }
+
   mt_setdefaultcolor ();
+  mt_gotoXY (26, 1);
 }

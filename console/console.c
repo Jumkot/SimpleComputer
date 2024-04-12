@@ -35,36 +35,124 @@ main (int argc, char *argv[])
 
   printAll ();
 
-  for (int i = 0; i < SIZE; i++)
+  enum keys key = NONE;
+  int value = KEY_SIZE - 1;
+
+  actual_cell = 0;
+
+  while (key != EXIT)
     {
-      int value;
-      sc_commandEncode (0, i, i, &value);
-      sc_memorySet (i, value);
-      printCell (i, WHITE, BLACK);
+      rk_readvalue (&value, 1);
+      rk_readkey (&key);
 
-      printAccumulator ();
-      printCounters ();
-      printFlags ();
-      printCommand ();
-    }
+      char string[10];
+      int length = 0;
+      switch (key)
+        {
+        case F5:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case F6:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case UP:
+          if (actual_cell < 8)
+            {
+              actual_cell += 120;
+            }
+          else if (actual_cell < 10)
+            {
+              actual_cell += 110;
+            }
+          else
+            {
+              actual_cell -= 10;
+            }
+          break;
+        case DOWN:
+          if (actual_cell > 119)
+            {
+              actual_cell -= 120;
+            }
+          else if (actual_cell == 118 || actual_cell == 119)
+            {
+              actual_cell -= 110;
+            }
+          else
+            {
+              actual_cell += 10;
+            }
+          break;
+        case RIGHT:
+          if (actual_cell % 10 == 9)
+            {
+              actual_cell -= 9;
+            }
+          else if (actual_cell == 127)
+            {
+              actual_cell = 120;
+            }
+          else
+            {
+              actual_cell++;
+            }
+          break;
+        case LEFT:
+          if (actual_cell == 120)
+            {
+              actual_cell = 127;
+            }
+          else if (actual_cell % 10 == 0)
+            {
+              actual_cell += 9;
+            }
+          else
+            {
+              actual_cell--;
+            }
+          break;
+        case LOAD:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case SAVE:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case RESET:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case RUN:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case STEP:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case EDIT:
+          mt_gotoXY (26, 1);
+          length = snprintf (string, 10, "%d!", key);
+          write (1, string, length);
+          break;
+        case EXIT:
+          mt_gotoXY (27, 1);
+          exit (0);
+        default:
+          break;
+        }
 
-  for (int i = 0; i < SIZE; i++)
-    {
-      printCell (i, GREEN, BLACK);
-      printCell (i - 1, WHITE, BLACK);
-
-      int value;
-      sc_memoryGet (i, &value);
-      sc_icounterSet (value);
-      actual_cell = i;
-      printDecodedCommand (value);
-      printCounters ();
-      printBigCell ();
-      mt_setdefaultcolor ();
-      printTerm (i, 0);
-      printCommand ();
-      mt_gotoXY (26, 1);
-      sleep (1);
+      printAll ();
     }
 
   return 0;

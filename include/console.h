@@ -3,6 +3,7 @@
 
 #include <c_variables.h>
 #include <myBigChar.h>
+#include <myReadKey.h>
 #include <mySimpleComputer.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,6 +22,7 @@ void printTerm (int address, int input);
 void printCommand (void);
 
 void printBigCell (void);
+void printActualCell (void);
 void printBoxes (void);
 void printKeys (void);
 void printAll (void);
