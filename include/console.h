@@ -2,10 +2,10 @@
 #define CONSOLE_H
 
 #include <c_variables.h>
+#include <math.h>
 #include <myBigChar.h>
 #include <myReadKey.h>
 #include <mySimpleComputer.h>
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
