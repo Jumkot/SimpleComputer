@@ -2,7 +2,6 @@
 #define CONSOLE_H
 
 #include <c_variables.h>
-#include <math.h>
 #include <myBigChar.h>
 #include <myReadKey.h>
 #include <mySimpleComputer.h>
@@ -32,7 +31,5 @@ void keyReset (void);
 void keySave (void);
 void keyLoad (void);
 void keyF5 (void);
-void keyF6 (void);
-void keyEdit (void);
 
 #endif

@@ -1,5 +1,4 @@
 #include <mySimpleComputer.h>
-#include <stdlib.h>
 
 int
 main (int argc, char *argv[])
@@ -49,22 +48,51 @@ main (int argc, char *argv[])
   printAll ();
 
   enum keys key = NONE;
-  int value = KEY_SIZE - 1;
 
   while (key != EXIT)
     {
-      rk_readvalue (&value, 1);
+      if (tcgetattr (STDOUT_FILENO, &saved) != 0)
+        {
+          return -1;
+        }
+      rk_mytermsave ();
+      if (rk_mytermregime (0, 1, 1, 0, 0) != 0)
+        {
+          return -1;
+        }
       rk_readkey (&key);
+      rk_mytermrestore ();
 
       int input_flag = 0;
+      int value[5];
+      int y = 0;
+      int x = 0;
 
       switch (key)
         {
+        case EDIT:
+          y = actual_cell % 10 * 6 + 2;
+          x = actual_cell / 10 + 2;
+          mt_gotoXY (x, y);
+          if (!(rk_readvalue (value, 0)))
+            {
+              sc_memorySet (actual_cell, *value);
+              input_flag = 1;
+            }
+          break;
         case F5:
-          keyF5 ();
+          mt_gotoXY (2, 68);
+          if (!(rk_readvalue (value, 0)))
+            {
+              sc_accumulatorSet (*value);
+            };
           break;
         case F6:
-          keyF6 ();
+          mt_gotoXY (5, 77);
+          if (!(rk_readvalue (value, 0)))
+            {
+              sc_icounterSet (*value);
+            }
           break;
         case UP:
           if (actual_cell < 8)
@@ -134,10 +162,6 @@ main (int argc, char *argv[])
         case RUN:
           break;
         case STEP:
-          break;
-        case EDIT:
-          keyEdit ();
-          input_flag = 1;
           break;
         case EXIT:
           mt_gotoXY (27, 1);
