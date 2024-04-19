@@ -9,7 +9,7 @@ IRC (int signum)
       sc_regGet (T, &value);
       if (value)
         {
-            return;
+          return;
         }
       (idle_tact_counter == 0) ? CU () : sc_icounterSet (idle_tact_counter - 1);
     }
