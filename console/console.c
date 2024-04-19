@@ -1,4 +1,4 @@
-#include <mySimpleComputer.h>
+#include <console.h>
 
 int
 main (int argc, char *argv[])
