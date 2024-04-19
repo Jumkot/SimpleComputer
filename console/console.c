@@ -157,7 +157,7 @@ main (int argc, char *argv[])
           keySave ();
           break;
         case RESET:
-          keyReset ();
+          IRC(SIGUSR1);
           break;
         case RUN:
           break;
@@ -165,6 +165,7 @@ main (int argc, char *argv[])
           break;
         case EXIT:
           mt_gotoXY (27, 1);
+          IRC (SIGALRM);
           exit (0);
         default:
           break;

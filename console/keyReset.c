@@ -9,7 +9,6 @@ keyReset ()
   sc_tcounterInit ();
   sc_regInit ();
   sc_regSet (T, 1);
-  IRC(SIGUSR1);
   actual_cell = 0;
   printAll ();
 }
