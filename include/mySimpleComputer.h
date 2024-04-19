@@ -19,6 +19,7 @@
 extern int ram[SIZE];
 
 extern int instruction_counter;
+extern int idle_tact_counter;
 extern int accumulator;
 extern int registr;
 

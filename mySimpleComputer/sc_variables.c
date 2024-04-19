@@ -5,5 +5,6 @@
 int ram[SIZE];
 
 int instruction_counter;
+int idle_tact_counter;
 int accumulator;
 int registr;
