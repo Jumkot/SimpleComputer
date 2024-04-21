@@ -12,7 +12,7 @@ IRC (int signum)
           return;
         }
       (idle_tact_counter == 0) ? CU ()
-                              : sc_icounterSet (idle_tact_counter - 1);    
+                               : sc_icounterSet (idle_tact_counter - 1);
     }
   else if (signum == SIGUSR1)
     {
@@ -26,6 +26,6 @@ IRC (int signum)
   else if (signum == SIGUSR2)
     {
       (idle_tact_counter == 0) ? CU ()
-                              : sc_icounterSet (idle_tact_counter - 1);    
+                               : sc_icounterSet (idle_tact_counter - 1);
     }
 }
