@@ -9,11 +9,10 @@ IRC (int signum)
       sc_regGet (T, &value);
       if (value)
         {
-          // alarm (0);
           return;
         }
-      // alarm (2000000);
-      (idle_tact_counter == 0) ? CU () : sc_icounterSet (idle_tact_counter - 1);
+      (idle_tact_counter == 0) ? CU ()
+                               : sc_icounterSet (idle_tact_counter - 1);    
     }
   else if (signum == SIGUSR1)
     {
@@ -23,11 +22,10 @@ IRC (int signum)
       sc_tcounterInit ();
       sc_regInit ();
       sc_regSet (T, 1);
-      // alarm (0);
     }
   else if (signum == SIGUSR2)
     {
-      // alarm (0);
-      (idle_tact_counter == 0) ? CU () : sc_icounterSet (idle_tact_counter - 1);
+      (idle_tact_counter == 0) ? CU ()
+                               : sc_icounterSet (idle_tact_counter - 1);    
     }
 }

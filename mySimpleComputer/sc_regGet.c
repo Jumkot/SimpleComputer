@@ -5,7 +5,7 @@ sc_regGet (int reg, int *value)
 {
   if ((reg != P) && (reg != O) && (reg != M) && (reg != T) && (reg != E))
     {
-      sc_regSet(E, 1);
+      sc_regSet (E, 1);
       return -1;
     }
 
@@ -18,6 +18,6 @@ sc_regGet (int reg, int *value)
       *value = 0;
     }
 
-  sc_regSet(E, 0);
+  sc_regSet (E, 0);
   return 0;
 }

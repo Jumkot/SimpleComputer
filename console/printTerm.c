@@ -47,8 +47,8 @@ printTerm (int address, int input, int update)
         {
           length = snprintf (string, 50, "%s%x%c %c%.2x%.2x",
                              (address < 16) ? "0" : "", address,
-                             (history_input[i]) ? '<' : '>', (sign) ? '-' : '+',
-                             command, operand);
+                             (history_input[i]) ? '<' : '>',
+                             (sign) ? '-' : '+', command, operand);
         }
 
       mt_gotoXY (24 - i, 68);

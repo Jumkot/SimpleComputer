@@ -5,9 +5,9 @@ sc_commandValidate (int command)
 {
   if (command == NOP || command == CPUINFO || command == READ
       || command == WRITE || command == LOAD || command == STORE
-      || command == ADD || command == SUB || command == DIVIDE || command == MUL
-      || command == JUMP || command == JNEG || command == JZ || command == HALT
-      || command == NOT || command == JNS)
+      || command == ADD || command == SUB || command == DIVIDE
+      || command == MUL || command == JUMP || command == JNEG || command == JZ
+      || command == HALT || command == NOT || command == JNS)
     {
       sc_regSet (E, 0);
       return 0;

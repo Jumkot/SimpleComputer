@@ -9,13 +9,13 @@ sc_memoryLoad (char *filename)
 
   if (!file)
     {
-      sc_regSet(M, 1);
+      sc_regSet (M, 1);
       return -1;
     }
 
   if (fread (buffer, sizeof (int), SIZE, file) != SIZE)
     {
-      sc_regSet(M, 1);
+      sc_regSet (M, 1);
       fclose (file);
       return -1;
     }
@@ -24,7 +24,7 @@ sc_memoryLoad (char *filename)
       ram[i] = buffer[i];
     }
 
-  sc_regSet(M, 0);
+  sc_regSet (M, 0);
   fclose (file);
   return 0;
 }
