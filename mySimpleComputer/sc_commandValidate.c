@@ -9,6 +9,7 @@ sc_commandValidate (int command)
       || command == JUMP || command == JNEG || command == JZ || command == HALT
       || command == NOT || command == JNS)
     {
+      sc_regSet (E, 0);
       return 0;
     }
 

@@ -5,6 +5,7 @@ sc_commandDecode (int value, int *sign, int *command, int *operand)
 {
   if (!sign || !command || !operand)
     {
+      sc_regSet(M, 1);
       return -1;
     }
 
@@ -12,5 +13,6 @@ sc_commandDecode (int value, int *sign, int *command, int *operand)
   *command = (value >> 7) & 0x7f;
   *operand = value & 0x7f;
 
+  sc_regSet(M, 0);
   return 0;
 }
