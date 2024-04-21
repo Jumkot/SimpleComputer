@@ -1,7 +1,7 @@
-#include <myReadKey.h>
-#include <mySimpleComputer.h>
+#include <console.h>
+// #include <myReadKey.h>
+// #include <mySimpleComputer.h>
 #include <myTerm.h>
-#include <stdlib.h>
 
 void
 CU ()
@@ -41,17 +41,10 @@ CU ()
     }
   else
     {
-      int y = 0;
-      int x = 0;
       int read_value[5];
 
       char string[85];
       int length = 0;
-
-      int memory_value = 0;
-      int memory_sign = 0;
-      int memory_command = 0;
-      int memory_operand = 0;
 
       switch (command)
         {
@@ -69,9 +62,8 @@ CU ()
           sc_icounterSet (++icounter);
           break;
         case READ:
-          y = operand % 10 * 6 + 2;
-          x = operand / 10 + 2;
-          mt_gotoXY (x, y);
+          printTerm (operand, 1, 1);
+          mt_gotoXY (24, 72);
           if (!(rk_readvalue (read_value, 0)))
             {
               sc_memorySet (operand, *read_value);
@@ -84,15 +76,7 @@ CU ()
           mt_clrscr ();
           mt_setdefaultcolor ();
 
-          sc_memoryGet (operand, &memory_value);
-          sc_commandDecode (memory_value, &memory_sign, &memory_command,
-                            &memory_operand);
-
-          length = snprintf (string, 85, "%d = %c%.2x%.2x", operand,
-                             (memory_sign) ? '-' : '+', memory_command,
-                             memory_operand);
-          mt_gotoXY (26, 1);
-          write (1, string, length);
+          printTerm (operand, 0, 1);
           sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;

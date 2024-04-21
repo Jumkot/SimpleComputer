@@ -214,14 +214,12 @@ main (int argc, char *argv[])
               break;
             }
           printAll ();
-          printTerm (actual_cell, input_flag);
         }
       else
         {
           sc_icounterGet (&count);
           actual_cell = count;
           printAll ();
-          printTerm (actual_cell, input_flag);
           IRC (SIGALRM);
         }
     }
