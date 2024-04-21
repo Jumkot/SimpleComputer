@@ -26,12 +26,12 @@ printAll ()
       sc_commandEncode (0, i, i, &value);
       sc_memoryGet (i, &value);
       printCell (i, WHITE, BLACK);
-      printActualCell ();
-      printAccumulator ();
-      printCounters ();
-      printFlags ();
-      printCommand ();
     }
+  printActualCell ();
+  printAccumulator ();
+  printCounters ();
+  printFlags ();
+  printCommand ();
   printTerm (-1, 0, 0);
 
   mt_setdefaultcolor ();
