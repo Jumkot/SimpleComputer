@@ -1,7 +1,7 @@
 #include <mySimpleComputer.h>
 
 int
-sc_icounterGet (int *value)
+sc_tcounterGet (int *value)
 {
   if (value)
     {

@@ -104,7 +104,7 @@ rk_readkey (enum keys *key)
     }
   else if (!(strncmp (key_value, "l", 1)))
     {
-      *key = LOAD;
+      *key = LOAD_KEY;
     }
   else if (!(strncmp (key_value, "s", 1)))
     {

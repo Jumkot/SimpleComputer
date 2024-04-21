@@ -1,9 +1,10 @@
 #ifndef MYSIMPLECOMPUTER_H
 #define MYSIMPLECOMPUTER_H
 
-#include <console.h>
 #include <sc_variables.h>
+#include <signal.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #define SIZE 128
 
@@ -22,6 +23,35 @@ extern int instruction_counter;
 extern int idle_tact_counter;
 extern int accumulator;
 extern int registr;
+
+extern int input_flag;
+
+enum commands
+{
+  NOP = 0x00,     // пустая операция
+  CPUINFO = 0x01, // вывод информации об исполнителе
+
+  READ = 0x0A, // ввод с терминала в указ. ячейку памяти
+  WRITE = 0x0B, // вывод на терминал из указ. ячейки памяти
+
+  LOAD = 0x14, // загрузка в аккумулятор знач. из указ. адреса
+  STORE = 0x15, // выгрузка знач. из аккумулятора по указ. адресу
+
+  ADD = 0x1E, // сложение слова в аккумуляторе и слова из указ. ячейки памяти
+  SUB = 0x1F, // вычитание из слова в аккумуляторе слова из указ. ячейки памяти
+  DIVIDE = 0x20, // деление слова в аккумуляторе на слово из указ. ячейки памяти
+  MUL = 0x21, // умножение слова в аккумуляторе на слово из указ. ячейки памяти
+  // результат в аккумуляторе
+
+  JUMP = 0x28, // переход к указанному адресу памяти
+  JNEG = 0x29, // переход к указанному адресу памяти if accum < 0
+  JZ = 0x2A, // переход к указанному адресу памяти if accum == 0
+  HALT = 0x2B, // остановка, завершает программу
+
+  // Пользовательские функции
+  NOT = 0x33, // инверсия слова в аккумуляторе, результат в указ. ячейку памяти
+  JNS = 0x37 // переход к указанному адресу памяти if accum > 0
+};
 
 // Память
 int sc_memoryInit (void);
@@ -45,9 +75,18 @@ int sc_icounterInit (void);
 int sc_icounterSet (int value);
 int sc_icounterGet (int *value);
 
+// Счётчик тактов простоя процессора
+int sc_tcounterInit (void);
+int sc_tcounterSet (int value);
+int sc_tcounterGet (int *value);
+
 // Кодирование/декодирование команд
 int sc_commandEncode (int sign, int command, int operand, int *value);
 int sc_commandDecode (int value, int *sign, int *command, int *operand);
 int sc_commandValidate (int command);
+
+void CU (void);
+int ALU (int command, int operand);
+void IRC (int signum);
 
 #endif

@@ -1,7 +1,7 @@
 #include <mySimpleComputer.h>
 
 int
-sc_icounterSet (int value)
+sc_tcounterSet (int value)
 {
   if (value >= 0 && value < 255)
     {

@@ -3,7 +3,6 @@
 void
 printAll ()
 {
-  mt_clrscr ();
 
   int rows = 0;
   int cols = 0;

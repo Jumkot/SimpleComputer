@@ -37,7 +37,7 @@ enum keys
   DOWN,
   RIGHT,
   LEFT,
-  LOAD,
+  LOAD_KEY,
   SAVE,
   RESET,
   RUN,

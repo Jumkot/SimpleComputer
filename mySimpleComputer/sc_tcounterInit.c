@@ -1,7 +1,7 @@
 #include <mySimpleComputer.h>
 
 int
-sc_icounterInit (void)
+sc_tcounterInit (void)
 {
   idle_tact_counter = 0;
 
