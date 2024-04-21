@@ -19,6 +19,5 @@ sc_regSet (int reg, int value)
       registr = registr & ~reg;
     }
 
-  sc_regSet(E, 0);
   return 0;
 }

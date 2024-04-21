@@ -4,6 +4,7 @@
 #include <sc_variables.h>
 #include <signal.h>
 #include <stdio.h>
+#include <sys/time.h>
 #include <unistd.h>
 
 #define SIZE 128

@@ -32,4 +32,6 @@ void keySave (void);
 void keyLoad (void);
 void keyF5 (void);
 
+void console (void);
+
 #endif

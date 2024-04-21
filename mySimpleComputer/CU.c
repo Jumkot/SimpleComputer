@@ -1,11 +1,12 @@
 #include <console.h>
-// #include <myReadKey.h>
-// #include <mySimpleComputer.h>
 #include <myTerm.h>
 
 void
 CU ()
 {
+  mt_clrscr ();
+  printAll ();
+
   int icounter = 0;
   sc_icounterGet (&icounter);
   int value = 0;
@@ -58,7 +59,6 @@ CU ()
           break;
         case CPUINFO:
           mt_setdefaultcolor ();
-          mt_clrscr ();
           length = snprintf (string, 85,
                              "Бондаренко Анастасия Александровна, ИС-241");
           mt_gotoXY (26, 1);
@@ -76,7 +76,6 @@ CU ()
           sc_icounterSet (++icounter);
           break;
         case WRITE:
-          mt_clrscr ();
           mt_setdefaultcolor ();
 
           printTerm (operand, 0, 1);

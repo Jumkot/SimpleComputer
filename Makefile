@@ -4,9 +4,9 @@ CC = gcc
 CFLAGS = -Wall -Werror
 FLAGS = -o
 
-APP = console/console
-APP_OBJECT = console/console.o
-APP_PATH = console/console.c
+APP = console/main
+APP_OBJECT = console/main.o
+APP_PATH = console/main.c
 
 FONT = console/font
 FONT_OBJECT = console/font.o
