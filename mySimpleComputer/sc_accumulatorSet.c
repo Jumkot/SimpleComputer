@@ -9,5 +9,6 @@ sc_accumulatorSet (int value)
       return 0;
     }
 
+  sc_regSet(P, 1);
   return -1;
 }

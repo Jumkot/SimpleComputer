@@ -17,6 +17,12 @@ CU ()
 
   if (sc_commandDecode (value, &sign, &command, &operand))
     {
+      sc_icounterSet (++icounter);
+      return;
+    }
+  if (sign)
+    {
+      sc_icounterSet (++icounter);
       return;
     }
 
@@ -35,8 +41,7 @@ CU ()
 
   if ((command >= ADD && command <= MUL) || command == NOT)
     {
-      exit (0);
-      // ALU (command, operand);
+      ALU (command, operand);
       return;
     }
   else
@@ -49,6 +54,7 @@ CU ()
       switch (command)
         {
         case NOP:
+          sc_icounterSet (++icounter);
           break;
         case CPUINFO:
           mt_setdefaultcolor ();
@@ -57,8 +63,6 @@ CU ()
                              "Бондаренко Анастасия Александровна, ИС-241");
           mt_gotoXY (26, 1);
           write (1, string, length);
-
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;
         case READ:
@@ -69,7 +73,6 @@ CU ()
               sc_memorySet (operand, *read_value);
               input_flag = 1;
             }
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;
         case WRITE:
@@ -77,19 +80,16 @@ CU ()
           mt_setdefaultcolor ();
 
           printTerm (operand, 0, 1);
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;
         case LOAD:
           sc_memoryGet (operand, &value);
           sc_accumulatorSet (value);
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;
         case STORE:
           sc_accumulatorGet (&value);
           sc_memorySet (operand, value);
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           break;
         case JUMP:
@@ -110,18 +110,10 @@ CU ()
             }
           break;
         case HALT:
-          sc_icounterGet (&icounter);
           sc_icounterSet (++icounter);
           mt_gotoXY (27, 1);
           sc_regSet (T, 1);
           exit (0);
-          break;
-        case NOT:
-          sc_accumulatorGet (&value);
-          value = ~value;
-          sc_memorySet (operand, value);
-          sc_icounterGet (&icounter);
-          sc_icounterSet (++icounter);
           break;
         case JNS:
           sc_accumulatorGet (&value);
@@ -129,6 +121,9 @@ CU ()
             {
               sc_icounterSet (operand);
             }
+          break;
+        default:
+          sc_regSet (E, 1);
           break;
         }
     }

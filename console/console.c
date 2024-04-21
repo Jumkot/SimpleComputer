@@ -23,21 +23,47 @@ main (int argc, char *argv[])
       printFlags ();
       printCommand ();
     }
-  sc_commandEncode (0, 1, 0, &value);
+  // Вывести исполнителя
+  sc_commandEncode (0, 1, 5, &value);
   sc_memorySet (0, value);
 
-  sc_commandEncode (0, 40, 120, &value);
+  // Загрузка в акк. из №120 = +0b00
+  sc_commandEncode (0, 20, 120, &value);
   sc_memorySet (1, value);
 
-  sc_commandEncode (0, 10, 120, &value);
+  // Перейти на №120
+  sc_commandEncode (0, 40, 120, &value);
+  sc_memorySet (2, value);
+
+  // Вывести №0 = +0105
+  sc_commandEncode (0, 11, 0, &value);
   sc_memorySet (120, value);
 
-  sc_commandEncode (0, 11, 120, &value);
-  sc_memorySet (121, value);
-
-  sc_commandEncode (0, 40, 61, &value);
+  // Ячейка для вычислений
+  sc_commandEncode (0, 0, 2, &value);
   sc_memorySet (122, value);
 
+  // Сложение №122 = +0002  и акк. = +0b00 (+0b02)
+  sc_commandEncode (0, 30, 122, &value);
+  sc_memorySet (121, value);
+
+  // Деление акк. = +0b02 на №122 = +0002 (+03ab)
+  sc_commandEncode (0, 32, 122, &value);
+  sc_memorySet (123, value);
+
+  // Выгрузка акк. = +03ab в №123
+  sc_commandEncode (0, 21, 123, &value);
+  sc_memorySet (124, value);
+
+  // Вычитание  №123 = +03ab и акк. = +03ab (+0000)
+  sc_commandEncode (0, 31, 123, &value);
+  sc_memorySet (125, value);
+
+  // Перейти к №61 = HALT если акк. = +0000
+  sc_commandEncode (0, 42, 61, &value);
+  sc_memorySet (126, value);
+
+  // HALT
   sc_commandEncode (0, 43, 61, &value);
   sc_memorySet (61, value);
   /////////////////
