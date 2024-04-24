@@ -19,7 +19,7 @@ console ()
     }
 
   printBoxes ();
-  printKeys ();  
+  printKeys ();
   printTerm (-1, 0, 0);
 
   for (int i = 0; i < SIZE; i++)
