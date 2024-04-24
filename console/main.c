@@ -56,7 +56,7 @@ main (int argc, char *argv[])
   int file = open (load_filename, O_RDONLY);
   bc_bigcharread (file, big_load, 18, &count_load);
   close (file);
-  
+
   // Загрузка памяти
   sc_memoryLoad ("test1.bin");
   console ();

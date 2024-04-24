@@ -100,7 +100,7 @@ CU ()
             {
               sc_icounterSet (operand);
             }
-          else 
+          else
             {
               sc_icounterSet (++icounter);
             }
@@ -111,7 +111,7 @@ CU ()
             {
               sc_icounterSet (operand);
             }
-          else 
+          else
             {
               sc_icounterSet (++icounter);
             }
