@@ -24,4 +24,5 @@ printCell (int address, enum colors fg, enum colors bg)
   write (1, string, length);
 
   mt_setdefaultcolor ();
+  mt_gotoXY (26, 1);
 }

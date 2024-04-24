@@ -26,4 +26,5 @@ printCommand (void)
       mt_gotoXY (5, 94);
       write (1, string, length);
     }
+  mt_gotoXY (26, 1);
 }

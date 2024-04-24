@@ -23,7 +23,8 @@ CU ()
     }
   if (sign)
     {
-      sc_icounterSet (++icounter);
+      sc_regSet (E, 1);
+      sc_regSet (T, 1);
       return;
     }
 
@@ -71,7 +72,6 @@ CU ()
           if (!(rk_readvalue (read_value, 0)))
             {
               sc_memorySet (operand, *read_value);
-              input_flag = 1;
             }
           sc_icounterSet (++icounter);
           break;
@@ -100,6 +100,10 @@ CU ()
             {
               sc_icounterSet (operand);
             }
+          else 
+            {
+              sc_icounterSet (++icounter);
+            }
           break;
         case JZ:
           sc_accumulatorGet (&value);
@@ -107,12 +111,15 @@ CU ()
             {
               sc_icounterSet (operand);
             }
+          else 
+            {
+              sc_icounterSet (++icounter);
+            }
           break;
         case HALT:
           sc_icounterSet (++icounter);
           mt_gotoXY (27, 1);
           sc_regSet (T, 1);
-          exit (0);
           break;
         case JNS:
           sc_accumulatorGet (&value);

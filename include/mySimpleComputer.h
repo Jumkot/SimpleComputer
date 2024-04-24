@@ -25,8 +25,6 @@ extern int idle_tact_counter;
 extern int accumulator;
 extern int registr;
 
-extern int input_flag;
-
 enum commands
 {
   NOP = 0x00,     // пустая операция

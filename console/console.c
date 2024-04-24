@@ -7,7 +7,6 @@ console ()
   printAll ();
 
   enum keys key = NONE;
-  actual_cell = 0;
 
   while (key != EXIT)
     {
@@ -32,7 +31,6 @@ console ()
           mt_clrscr ();
           printAll ();
 
-          input_flag = 0;
           int read_value[5];
           int y = 0;
           int x = 0;
@@ -46,7 +44,7 @@ console ()
               if (!(rk_readvalue (read_value, 0)))
                 {
                   sc_memorySet (actual_cell, *read_value);
-                  input_flag = 1;
+                  printAccumulator ();
                 }
               break;
             case F5:

@@ -17,4 +17,6 @@ printAccumulator (void)
 
   mt_gotoXY (2, 64);
   write (1, string, length);
+
+  mt_gotoXY (26, 1);
 }

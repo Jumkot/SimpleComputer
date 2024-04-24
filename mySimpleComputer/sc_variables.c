@@ -8,5 +8,3 @@ int instruction_counter;
 int idle_tact_counter;
 int accumulator;
 int registr;
-
-int input_flag;

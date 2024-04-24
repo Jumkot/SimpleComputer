@@ -11,4 +11,6 @@ printCounters (void)
 
   mt_gotoXY (5, 63);
   write (1, string, length);
+
+  mt_gotoXY (26, 1);
 }

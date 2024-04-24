@@ -18,4 +18,6 @@ printFlags (void)
 
   mt_gotoXY (2, 91);
   write (1, string, 13);
+
+  mt_gotoXY (26, 1);
 }

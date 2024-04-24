@@ -12,6 +12,4 @@ extern int instruction_counter;
 extern int idle_tact_counter;
 extern int registr;
 
-extern int input_flag;
-
 #endif

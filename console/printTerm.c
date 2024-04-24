@@ -1,6 +1,7 @@
 #include <console.h>
 
 static int history_address[5] = { -1, -1, -1, -1, -1 };
+static int history_value[5] = { -1, -1, -1, -1, -1 };
 static int history_input[5];
 
 void
@@ -23,16 +24,18 @@ printTerm (int address, int input, int update)
         {
           history_address[i] = history_address[i - 1];
           history_input[i] = history_input[i - 1];
+          history_value[i] = history_value[i - 1];
         }
       history_address[0] = address;
       history_input[0] = input;
+      history_value[0] = value;
     }
 
   for (int i = 0; i < 5; i++)
     {
       address = history_address[i];
       sc_memoryGet (history_address[i], &value);
-      sc_commandDecode (value, &sign, &command, &operand);
+      sc_commandDecode (history_value[i], &sign, &command, &operand);
       if (address < 0)
         {
           continue;

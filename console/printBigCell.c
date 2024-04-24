@@ -147,5 +147,7 @@ printBigCell (void)
   mt_setbgcolor (BLACK);
   mt_setfgcolor (BLUE);
   write (1, str, length);
+  
   mt_setdefaultcolor ();
+  mt_gotoXY (26, 1);
 }
