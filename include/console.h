@@ -11,6 +11,7 @@
 
 extern int big_load[36];
 extern int actual_cell;
+extern int last_cell;
 
 void printCell (int address, enum colors fg, enum colors bg);
 void printFlags (void);

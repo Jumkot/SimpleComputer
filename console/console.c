@@ -4,6 +4,30 @@ void
 console ()
 {
   mt_clrscr ();
+
+  int rows = 0;
+  int cols = 0;
+  mt_getscreensize (&rows, &cols);
+
+  if (rows < 26 || cols < 108)
+    {
+      char string[80];
+      int length
+          = snprintf (string, 80, "Ошибка: недостаточный размер терминала\n");
+      write (1, string, length);
+      exit (0);
+    }
+
+  printBoxes ();
+  printKeys ();
+
+  for (int i = 0; i < SIZE; i++)
+    {
+      int value;
+      sc_commandEncode (0, i, i, &value);
+      sc_memoryGet (i, &value);
+      printCell (i, WHITE, BLACK);
+    }
   printAll ();
 
   enum keys key = NONE;
@@ -28,7 +52,7 @@ console ()
           rk_readkey (&key);
           rk_mytermrestore ();
 
-          mt_clrscr ();
+          mt_clrstr ();
           printAll ();
 
           int read_value[5];
@@ -44,7 +68,7 @@ console ()
               if (!(rk_readvalue (read_value, 0)))
                 {
                   sc_memorySet (actual_cell, *read_value);
-                  printAccumulator ();
+                  printActualCell ();
                 }
               break;
             case F5:
@@ -52,6 +76,7 @@ console ()
               if (!(rk_readvalue (read_value, 0)))
                 {
                   sc_accumulatorSet (*read_value);
+                  printAccumulator ();
                 };
               break;
             case F6:
@@ -59,9 +84,11 @@ console ()
               if (!(rk_readvalue (read_value, 0)))
                 {
                   sc_icounterSet (*read_value);
+                  printCounters ();
                 }
               break;
             case UP:
+              last_cell = actual_cell;
               if (actual_cell < 8)
                 {
                   actual_cell += 120;
@@ -76,6 +103,7 @@ console ()
                 }
               break;
             case DOWN:
+              last_cell = actual_cell;
               if (actual_cell > 119)
                 {
                   actual_cell -= 120;
@@ -90,6 +118,7 @@ console ()
                 }
               break;
             case RIGHT:
+              last_cell = actual_cell;
               if (actual_cell % 10 == 9)
                 {
                   actual_cell -= 9;
@@ -104,6 +133,7 @@ console ()
                 }
               break;
             case LEFT:
+              last_cell = actual_cell;
               if (actual_cell == 120)
                 {
                   actual_cell = 127;
@@ -127,16 +157,17 @@ console ()
             case RESET:
               IRC (SIGUSR1);
               sc_icounterGet (&count);
-              actual_cell = count;
               break;
             case RUN:
               sc_regSet (T, 0);
               sc_icounterGet (&count);
+              last_cell = actual_cell;
               actual_cell = count;
               break;
             case STEP:
               CU ();
               sc_icounterGet (&count);
+              last_cell = actual_cell;
               actual_cell = count;
               break;
             case EXIT:
@@ -152,7 +183,10 @@ console ()
         {
           pause ();
           sc_icounterGet (&count);
+          last_cell = actual_cell;
           actual_cell = count;
+
+          printAll ();
         }
     }
 }

@@ -4,9 +4,6 @@
 void
 CU ()
 {
-  mt_clrscr ();
-  printAll ();
-
   int icounter = 0;
   sc_icounterGet (&icounter);
   int value = 0;

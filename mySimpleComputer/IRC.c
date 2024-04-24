@@ -1,4 +1,4 @@
-#include <mySimpleComputer.h>
+#include <console.h>
 
 void
 IRC (int signum)
@@ -22,6 +22,8 @@ IRC (int signum)
       sc_tcounterInit ();
       sc_regInit ();
       sc_regSet (T, 1);
+      actual_cell = 0;
+      last_cell = 127;
     }
   else if (signum == SIGUSR2)
     {

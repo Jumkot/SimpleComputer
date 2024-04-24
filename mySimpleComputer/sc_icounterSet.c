@@ -3,7 +3,7 @@
 int
 sc_icounterSet (int value)
 {
-  if (value >= 0 && value < 32767)
+  if (value >= 0 && value < 128)
     {
       sc_regSet (P, 0);
       instruction_counter = value;
