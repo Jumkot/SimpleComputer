@@ -70,18 +70,18 @@ CU ()
           sc_icounterSet (++icounter);
           break;
         case READ:
-          printTerm (operand, 1, 1);
-          mt_gotoXY (24, 72);
           if (!(rk_readvalue (read_value, 0)))
             {
               sc_cacheSet (operand, *read_value);
             }
+          printTerm (operand, *read_value, 1, 1);
+          mt_gotoXY (24, 72);
           sc_icounterSet (++icounter);
           break;
         case WRITE:
           mt_setdefaultcolor ();
-
-          printTerm (operand, 0, 1);
+          sc_cacheGet (operand, &value);
+          printTerm (operand, value, 0, 1);
           sc_icounterSet (++icounter);
           break;
         case LOAD:

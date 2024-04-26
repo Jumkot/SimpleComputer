@@ -19,7 +19,7 @@ void printDecodedCommand (int value);
 void printAccumulator (void);
 void printCounters (void);
 
-void printTerm (int address, int input, int update);
+void printTerm (int address, int value, int input, int update);
 void printCommand (void);
 
 void printBigCell (void);

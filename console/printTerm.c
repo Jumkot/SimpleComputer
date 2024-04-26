@@ -5,9 +5,8 @@ static int history_value[5] = { -1, -1, -1, -1, -1 };
 static int history_input[5];
 
 void
-printTerm (int address, int input, int update)
+printTerm (int address, int value, int input, int update)
 {
-  int value = 0;
   int sign = 0;
   int command = 0;
   int operand = 0;
@@ -17,9 +16,6 @@ printTerm (int address, int input, int update)
 
   if (update)
     {
-      sc_memoryGet (address, &value);
-      sc_commandDecode (value, &sign, &command, &operand);
-
       for (int i = 4; i > 0; i--)
         {
           history_address[i] = history_address[i - 1];
@@ -34,7 +30,6 @@ printTerm (int address, int input, int update)
   for (int i = 0; i < 5; i++)
     {
       address = history_address[i];
-      sc_memoryGet (history_address[i], &value);
       sc_commandDecode (history_value[i], &sign, &command, &operand);
       if (address < 0)
         {

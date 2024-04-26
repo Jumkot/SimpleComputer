@@ -20,7 +20,7 @@ console ()
 
   printBoxes ();
   printKeys ();
-  printTerm (-1, 0, 0);
+  printTerm (-1, -1, 0, 0);
 
   for (int i = 0; i < SIZE; i++)
     {
@@ -68,8 +68,8 @@ console ()
               mt_gotoXY (x, y);
 
               sc_regSet (T, 0);
-              sc_cacheSet (actual_cell, *read_value);
               rk_readvalue (read_value, 0);
+              sc_cacheSet (actual_cell, *read_value);
               sc_regSet (T, 1);
 
               printActualCell ();
@@ -182,7 +182,6 @@ console ()
             default:
               break;
             }
-          printAll ();
         }
       else
         {
@@ -190,8 +189,7 @@ console ()
           sc_icounterGet (&count);
           last_cell = actual_cell;
           actual_cell = count;
-
-          printAll ();
         }
+      printAll ();
     }
 }
