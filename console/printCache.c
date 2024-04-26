@@ -16,10 +16,10 @@ printCache ()
           ((cache[i].start_address + 10) < SIZE) ? (stop = 10) : (stop = 8);
 
           char address_print[6];
-          int length = snprintf (
-              address_print, 6,
-              "%s%s%d: ", (cache[i].start_address >= 100) ? "" : "0",
-              (cache[i].start_address != 0) ? "" : "0", cache[i].start_address);
+          int length = snprintf (address_print, 6, "%s%s%d: ",
+                                 (cache[i].start_address >= 100) ? "" : "0",
+                                 (cache[i].start_address != 0) ? "" : "0",
+                                 cache[i].start_address);
           mt_gotoXY (20 + i, 2);
           write (1, address_print, 6);
 
