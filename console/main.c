@@ -31,40 +31,6 @@ main (int argc, char *argv[])
       printCache ();
     }
 
-  int value = 0;
-
-  sc_commandEncode (0, 0, 1, &value);
-  sc_memorySet (0, value);
-
-  sc_commandEncode (0, 0, 10, &value);
-  sc_memorySet (1, value);
-
-  sc_commandEncode (0, 20, 1, &value);
-  sc_memorySet (2, value);
-
-  sc_commandEncode (0, 31, 0, &value);
-  sc_memorySet (3, value);
-  
-  sc_commandEncode (0, 21, 5, &value);
-  sc_memorySet (4, value);
-
-  sc_commandEncode (0, 0, 0, &value);
-  sc_memorySet (5, value);
-
-  sc_commandEncode (0, 11, 5, &value);
-  sc_memorySet (6, value);
-
-  sc_commandEncode (0, 42, 61, &value);
-  sc_memorySet (7, value);
-
-  sc_commandEncode (0, 40, 3, &value);
-  sc_memorySet (8, value);
-
-  sc_commandEncode (0, 43, 0, &value);
-  sc_memorySet (61, value);
-
-  sc_memorySave ("test1.bin");
-
   // Загрузка шрифта
   int count_load;
   const char *load_filename;

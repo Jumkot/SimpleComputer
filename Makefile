@@ -43,6 +43,6 @@ clean:
 	make clean -C myTerm/
 	make clean -C myBigChar/
 	make clean -C myReadKey/
-	rm -rf $(APP) $(FONT) $(FONT_OBJECT) $(APP_OBJECT) *.bin console/*.bin
+	rm -rf $(APP) $(FONT) $(FONT_OBJECT) $(APP_OBJECT) font.bin
 
 .PHONY: all clean 
