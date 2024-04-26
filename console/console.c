@@ -66,11 +66,13 @@ console ()
               y = actual_cell % 10 * 6 + 2;
               x = actual_cell / 10 + 2;
               mt_gotoXY (x, y);
-              if (!(rk_readvalue (read_value, 0)))
-                {
-                  sc_memorySet (actual_cell, *read_value);
-                  printActualCell ();
-                }
+
+              sc_regSet (T, 0);
+              sc_cacheSet (actual_cell, *read_value);
+              rk_readvalue (read_value, 0);
+              sc_regSet (T, 1);
+
+              printActualCell ();
               break;
             case F5:
               mt_gotoXY (2, 68);
@@ -166,7 +168,9 @@ console ()
               actual_cell = count;
               break;
             case STEP:
-              CU ();
+              sc_regSet (T, 0);
+              IRC (SIGALRM);
+              sc_regSet (T, 1);
               sc_icounterGet (&count);
               last_cell = actual_cell;
               actual_cell = count;

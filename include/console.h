@@ -35,4 +35,6 @@ void keyF5 (void);
 
 void console (void);
 
+void printCache (void);
+
 #endif

@@ -3,6 +3,8 @@
 void
 IRC (int signum)
 {
+  int tcounter = 0;
+  sc_tcounterGet (&tcounter);
   if (signum == SIGALRM)
     {
       int value = 0;
@@ -11,8 +13,7 @@ IRC (int signum)
         {
           return;
         }
-      (idle_tact_counter == 0) ? CU ()
-                               : sc_icounterSet (idle_tact_counter - 1);
+      (tcounter == 0) ? CU () : sc_tcounterSet (tcounter - 1);
     }
   else if (signum == SIGUSR1)
     {
@@ -22,12 +23,12 @@ IRC (int signum)
       sc_tcounterInit ();
       sc_regInit ();
       sc_regSet (T, 1);
+      sc_cacheInit ();
       actual_cell = 0;
       last_cell = 127;
     }
   else if (signum == SIGUSR2)
     {
-      (idle_tact_counter == 0) ? CU ()
-                               : sc_icounterSet (idle_tact_counter - 1);
+      (tcounter == 0) ? CU () : sc_tcounterSet (tcounter - 1);
     }
 }

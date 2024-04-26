@@ -25,6 +25,16 @@ extern int idle_tact_counter;
 extern int accumulator;
 extern int registr;
 
+typedef struct cache_line
+{
+  int start_address; // Адрес начала строки
+  int str[10];       // Строка значений из памяти
+  int str_change;    // Флаг изменения строки
+  int str_time; // Давность последнего использования строки
+} cache_line;
+
+extern cache_line cache[5];
+
 enum commands
 {
   NOP = 0x00,     // пустая операция
@@ -87,5 +97,12 @@ int sc_commandValidate (int command);
 void CU (void);
 int ALU (int command, int operand);
 void IRC (int signum);
+
+// Кэш
+int sc_cacheInit (void);
+int sc_cacheSet (int address, int value);
+int sc_cacheGet (int address, int *value);
+int sc_cacheSave (int address);
+int sc_cacheLoad (int address);
 
 #endif

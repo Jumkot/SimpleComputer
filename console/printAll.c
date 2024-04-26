@@ -8,6 +8,7 @@ printAll ()
   printCounters ();
   printFlags ();
   printCommand ();
+  printCache ();
 
   mt_setdefaultcolor ();
   mt_gotoXY (26, 1);

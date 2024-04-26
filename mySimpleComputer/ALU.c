@@ -4,7 +4,7 @@ int
 ALU (int command, int operand)
 {
   int value = 0;
-  sc_memoryGet (operand, &value);
+  sc_cacheGet (operand, &value);
 
   int accum = 0;
   sc_accumulatorGet (&accum);
@@ -37,7 +37,7 @@ ALU (int command, int operand)
       break;
     case NOT:
       accum = ~accum;
-      sc_memorySet (operand, value);
+      sc_cacheSet (operand, value);
       break;
     default:
       sc_regSet (E, 1);

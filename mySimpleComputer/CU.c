@@ -6,8 +6,14 @@ CU ()
 {
   int icounter = 0;
   sc_icounterGet (&icounter);
+  if (icounter >= 127)
+    {
+      sc_regSet (M, 1);
+      sc_regSet (T, 1);
+      return;
+    }
   int value = 0;
-  sc_memoryGet (icounter, &value);
+  sc_cacheGet (icounter, &value);
 
   int sign = 0;
   int command = 0;
@@ -68,7 +74,7 @@ CU ()
           mt_gotoXY (24, 72);
           if (!(rk_readvalue (read_value, 0)))
             {
-              sc_memorySet (operand, *read_value);
+              sc_cacheSet (operand, *read_value);
             }
           sc_icounterSet (++icounter);
           break;
@@ -79,13 +85,13 @@ CU ()
           sc_icounterSet (++icounter);
           break;
         case LOAD:
-          sc_memoryGet (operand, &value);
+          sc_cacheGet (operand, &value);
           sc_accumulatorSet (value);
           sc_icounterSet (++icounter);
           break;
         case STORE:
           sc_accumulatorGet (&value);
-          sc_memorySet (operand, value);
+          sc_cacheSet (operand, value);
           sc_icounterSet (++icounter);
           break;
         case JUMP:

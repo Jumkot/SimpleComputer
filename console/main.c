@@ -28,6 +28,7 @@ main (int argc, char *argv[])
       printCounters ();
       printFlags ();
       printCommand ();
+      printCache ();
     }
 
   // sc_commandEncode (0, 31, 0, &value);
