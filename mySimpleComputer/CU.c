@@ -31,11 +31,11 @@ CU ()
       return;
     }
 
-  if (sc_commandValidate (command))
-    {
-      sc_regSet (E, 1);
-      return;
-    }
+  // if (sc_commandValidate (command))
+  //   {
+  //     sc_regSet (E, 1);
+  //     return;
+  //   }
 
   if (operand >= SIZE || operand < 0)
     {
@@ -70,13 +70,15 @@ CU ()
           sc_icounterSet (++icounter);
           break;
         case READ:
+          sc_regSet (T, 1);
+          printTerm (operand, -1, 1, 0);
           if (!(rk_readvalue (read_value, 0)))
             {
               sc_cacheSet (operand, *read_value);
             }
           printTerm (operand, *read_value, 1, 1);
-          mt_gotoXY (24, 72);
           sc_icounterSet (++icounter);
+          sc_regSet (T, 0);
           break;
         case WRITE:
           mt_setdefaultcolor ();

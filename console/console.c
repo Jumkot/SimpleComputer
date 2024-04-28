@@ -53,7 +53,7 @@ console ()
           rk_readkey (&key);
           rk_mytermrestore ();
 
-          mt_clrstr ();
+          mt_delline ();
           printAll ();
 
           int read_value[5];
@@ -67,10 +67,8 @@ console ()
               x = actual_cell / 10 + 2;
               mt_gotoXY (x, y);
 
-              sc_regSet (T, 0);
               rk_readvalue (read_value, 0);
               sc_cacheSet (actual_cell, *read_value);
-              sc_regSet (T, 1);
 
               printActualCell ();
               break;

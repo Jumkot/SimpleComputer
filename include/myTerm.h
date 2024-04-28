@@ -18,7 +18,6 @@ enum colors
 };
 
 int mt_clrscr (void);
-int mt_clrstr (void);
 int mt_gotoXY (int string, int column);
 int mt_getscreensize (int *rows, int *cols);
 int mt_setfgcolor (enum colors);

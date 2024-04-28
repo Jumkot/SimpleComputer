@@ -13,6 +13,10 @@ extern int big_load[36];
 extern int actual_cell;
 extern int last_cell;
 
+// extern int history_address[5];
+// extern int history_value[5];
+// extern int history_input[5];
+
 void printCell (int address, enum colors fg, enum colors bg);
 void printFlags (void);
 void printDecodedCommand (int value);
@@ -20,6 +24,8 @@ void printAccumulator (void);
 void printCounters (void);
 
 void printTerm (int address, int value, int input, int update);
+// void updateTerm (int address, int value, int input);
+// void printTerm (void);
 void printCommand (void);
 
 void printBigCell (void);

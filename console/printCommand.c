@@ -21,8 +21,7 @@ printCommand (void)
     }
   else
     {
-      int length = snprintf (string, 50, "%c 00 : %s%x", (sign) ? '-' : '+',
-                             (command > 15) ? "" : "0", command);
+      int length = snprintf (string, 50, "%c 00 : %.2x", (sign) ? '-' : '+', command);
       mt_gotoXY (5, 94);
       write (1, string, length);
     }

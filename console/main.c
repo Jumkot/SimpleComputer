@@ -31,32 +31,14 @@ main (int argc, char *argv[])
       printCache ();
     }
 
-  // Загрузка шрифта
   int count_load;
-  const char *load_filename;
-  if (argc > 1)
-    {
-      load_filename = argv[1];
-    }
-  else
-    {
-      load_filename = "font.bin";
-    }
-  if (access (load_filename, F_OK) == -1)
-    {
-      char string[80];
-      int length = snprintf (string, 80, "Ошибка: Файл '%s' не существует.\n",
-                             load_filename);
-      write (1, string, length);
-      exit (0);
-    }
-
-  int file = open (load_filename, O_RDONLY);
+  int file = open ("font.bin", O_RDONLY);
   bc_bigcharread (file, big_load, 18, &count_load);
   close (file);
 
   // Загрузка памяти
-  sc_memoryLoad ("test1.bin");
+  sc_memoryLoad (argv[1]);
+  
   console ();
 
   return 0;

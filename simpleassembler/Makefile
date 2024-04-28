@@ -1,11 +1,11 @@
-#Makefile for mySimpleComputer
+#testMakefile for simpleassembler
 
 CC = gcc
 
 CFLAGS = -Wall -Werror
 FLAGS = -o
 
-LIB_NAME = libmsc.a
+LIB_NAME = libsa.a
 PART_SOURCES = $(wildcard *.c)
 PART_OBJECTS = $(patsubst %.c, %.o, $(PART_SOURCES))
 
@@ -18,6 +18,6 @@ $(LIB_NAME): $(PART_OBJECTS)
 	ar rcs $@ $^
 
 clean:
-	rm -rf $(LIB_NAME) $(PART_OBJECTS)
+	rm -rf $(LIB_NAME) $(PART_OBJECTS) sat
 
 .PHONY: all clean 

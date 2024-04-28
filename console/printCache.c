@@ -3,6 +3,12 @@
 void
 printCache ()
 {
+  int tcounter = 0;
+  sc_tcounterGet (&tcounter);
+  if (tcounter)
+  {
+    return;
+  }
   for (int i = 0; i < 5; i++)
     {
       char clear[16];
@@ -16,10 +22,7 @@ printCache ()
           ((cache[i].start_address + 10) < SIZE) ? (stop = 10) : (stop = 8);
 
           char address_print[6];
-          int length = snprintf (address_print, 6, "%s%s%d: ",
-                                 (cache[i].start_address >= 100) ? "" : "0",
-                                 (cache[i].start_address != 0) ? "" : "0",
-                                 cache[i].start_address);
+          int length = snprintf (address_print, 6, "%.3d: ", cache[i].start_address);
           mt_gotoXY (20 + i, 2);
           write (1, address_print, 6);
 

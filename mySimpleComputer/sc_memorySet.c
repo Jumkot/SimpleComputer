@@ -9,7 +9,6 @@ sc_memorySet (int address, int value)
       return -1;
     }
 
-  sc_regSet (P, 1);
   ram[address] = value;
   return 0;
 }
