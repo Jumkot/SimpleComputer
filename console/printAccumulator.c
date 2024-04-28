@@ -22,7 +22,7 @@ printAccumulator (void)
                          (sign) ? '-' : '+', command, operand, temp);
     }
   else
-    {      
+    {
       length = snprintf (string, 21, "sc: %c%.2x%.2x hex: %.4x",
                          (sign) ? '-' : '+', command, operand, value);
     }

@@ -16,7 +16,7 @@ main (int argc, char *argv[])
 
   char *input_file = argv[1];
   char *output_file = argv[2];
-  
+
   sa_fileTranslate (input_file, output_file);
 
   return 0;

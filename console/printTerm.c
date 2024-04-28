@@ -20,7 +20,6 @@ printTerm (int address, int value, int input, int update)
         {
           for (int i = 0; i < 4; i++)
             {
-              
               int h_address = history_address[i];
               sc_commandDecode (history_value[i], &sign, &command, &operand);
               if (h_address < 0)
@@ -36,7 +35,6 @@ printTerm (int address, int value, int input, int update)
               write (1, string, length);
             }
         }
-      
       length = snprintf (string, 50, "         ");
       mt_gotoXY (24, 68);
       write (1, string, length);
