@@ -58,8 +58,8 @@ sa_fileTranslate (char *input_file, char *output_file)
       if (ptr != NULL && ptr[0] != ';')
         {
           error_length = snprintf (error_string, 100,
-                                    "Ошибка: неверный знак '%c' в строке %d\n",
-                                    ptr[0], i);
+                                   "Ошибка: неверный знак '%c' в строке %d\n",
+                                   ptr[0], i);
           write (1, error_string, error_length);
           return -1;
         }
@@ -81,7 +81,7 @@ sa_fileTranslate (char *input_file, char *output_file)
       if (sc_commandEncode (0, command, operand, &value))
         {
           error_length = snprintf (error_string, 100,
-                                    "Ошибка кодирования в строке %d\n", i);
+                                   "Ошибка кодирования в строке %d\n", i);
           write (1, error_string, error_length);
           return -1;
         }
