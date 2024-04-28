@@ -15,40 +15,38 @@ printTerm (int address, int value, int input, int update)
   int length = 0;
 
   if (input && !(update))
-  {
-    if (history_address[0] >= 0)
-      {
-        for (int i = 0; i < 4; i++)
-          {
-            
-            int h_address = history_address[i];
-            sc_commandDecode (history_value[i], &sign, &command, &operand);
-            if (h_address < 0)
-              {
-                continue;
-              }
+    {
+      if (history_address[0] >= 0)
+        {
+          for (int i = 0; i < 4; i++)
+            {
+              
+              int h_address = history_address[i];
+              sc_commandDecode (history_value[i], &sign, &command, &operand);
+              if (h_address < 0)
+                {
+                  continue;
+                }
 
-            length = snprintf (string, 50, "%.2x%c %c%.2x%.2x",
-                           h_address,
-                          (history_input[i]) ? '<' : '>',
-                          (sign) ? '-' : '+', command, operand);
+              length = snprintf (string, 50, "%.2x%c %c%.2x%.2x", h_address,
+                                 (history_input[i]) ? '<' : '>',
+                                 (sign) ? '-' : '+', command, operand);
 
-            mt_gotoXY (24 - (i + 1), 68);
-            write (1, string, length);
-          }
-      }
-    
+              mt_gotoXY (24 - (i + 1), 68);
+              write (1, string, length);
+            }
+        }
+      
+      length = snprintf (string, 50, "         ");
+      mt_gotoXY (24, 68);
+      write (1, string, length);
 
-    length = snprintf (string, 50, "         ");
-    mt_gotoXY (24, 68);
-    write (1, string, length);
+      length = snprintf (string, 50, "%.2x< ", address);
+      mt_gotoXY (24, 68);
+      write (1, string, length);
 
-    length = snprintf (string, 50, "%.2x< ", address);
-    mt_gotoXY (24, 68);
-    write (1, string, length);
-
-    return;
-  }
+      return;
+    }
 
   if (update)
     {
@@ -73,8 +71,8 @@ printTerm (int address, int value, int input, int update)
         }
 
       length = snprintf (string, 50, "%.2x%c %c%.2x%.2x", address,
-                    (history_input[i]) ? '<' : '>',
-                    (sign) ? '-' : '+', command, operand);
+                         (history_input[i]) ? '<' : '>', (sign) ? '-' : '+',
+                         command, operand);
 
       mt_gotoXY (24 - i, 68);
       write (1, string, length);

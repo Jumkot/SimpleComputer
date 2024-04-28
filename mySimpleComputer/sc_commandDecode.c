@@ -14,10 +14,10 @@ sc_commandDecode (int value, int *sign, int *command, int *operand)
   *operand = value & 0x7f;
 
   if (sc_commandValidate (*command))
-  {
-    sc_regSet (E, 1);
-    return -1;
-  }
+    {
+      sc_regSet (E, 1);
+      return -1;
+    }
 
   sc_regSet (M, 0);
   return 0;

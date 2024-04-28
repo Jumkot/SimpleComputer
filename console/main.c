@@ -38,7 +38,7 @@ main (int argc, char *argv[])
 
   // Загрузка памяти
   sc_memoryLoad (argv[1]);
-  
+
   console ();
 
   return 0;

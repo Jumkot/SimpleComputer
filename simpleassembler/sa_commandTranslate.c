@@ -71,8 +71,8 @@ sa_commandTranslate (char *command)
   else
     {
       char error_string[80];
-      int error_length = snprintf (error_string, 80, "Ошибка: Нераспознанная команда '%s'\n",
-                             command);
+      int error_length = snprintf (
+          error_string, 80, "Ошибка: Нераспознанная команда '%s'\n", command);
       write (1, error_string, error_length);
       return -1;
     }

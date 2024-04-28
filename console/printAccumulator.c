@@ -18,12 +18,13 @@ printAccumulator (void)
     {
       int temp = 0x0;
       temp = value * (-1);
-      length = snprintf (string, 21, "sc: %c%.2x%.2x hex:-%.4x\n", (sign) ? '-' : '+', command, operand, temp);
+      length = snprintf (string, 21, "sc: %c%.2x%.2x hex:-%.4x\n",
+                         (sign) ? '-' : '+', command, operand, temp);
     }
   else
     {      
       length = snprintf (string, 21, "sc: %c%.2x%.2x hex: %.4x",
-                            (sign) ? '-' : '+', command, operand, value);
+                         (sign) ? '-' : '+', command, operand, value);
     }
   mt_gotoXY (2, 64);
   write (1, string, length);

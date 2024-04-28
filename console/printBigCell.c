@@ -140,7 +140,8 @@ printBigCell (void)
     }
 
   char str[100];
-  int length = snprintf (str, 100, "Номер редактируемой ячейки: %.3d", actual_cell);
+  int length
+      = snprintf (str, 100, "Номер редактируемой ячейки: %.3d", actual_cell);
   mt_gotoXY (17, 64);
   mt_setbgcolor (BLACK);
   mt_setfgcolor (BLUE);

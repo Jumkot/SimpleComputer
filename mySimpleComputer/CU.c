@@ -31,12 +31,6 @@ CU ()
       return;
     }
 
-  // if (sc_commandValidate (command))
-  //   {
-  //     sc_regSet (E, 1);
-  //     return;
-  //   }
-
   if (operand >= SIZE || operand < 0)
     {
       sc_regSet (M, 1);
