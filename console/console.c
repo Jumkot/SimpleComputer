@@ -68,7 +68,7 @@ console ()
               mt_gotoXY (x, y);
 
               rk_readvalue (read_value, 0);
-              sc_cacheSet (actual_cell, *read_value);
+              sc_memorySet (actual_cell, *read_value);
 
               printActualCell ();
               break;
