@@ -17,6 +17,8 @@ IRC (int signum)
     }
   else if (signum == SIGUSR1)
     {
+      mt_clrscr ();
+      
       sc_memoryInit ();
       sc_accumulatorInit ();
       sc_icounterInit ();
@@ -26,6 +28,10 @@ IRC (int signum)
       sc_cacheInit ();
       actual_cell = 0;
       last_cell = 127;
+
+      printBoxes ();
+      printKeys ();
+      printTerm (-1, -1, 0, 0);
 
       for (int i = 0; i < SIZE; i++)
         {
