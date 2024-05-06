@@ -18,7 +18,7 @@ IRC (int signum)
   else if (signum == SIGUSR1)
     {
       mt_clrscr ();
-      
+
       sc_memoryInit ();
       sc_accumulatorInit ();
       sc_icounterInit ();
