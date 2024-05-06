@@ -18,7 +18,7 @@ keySave ()
   for (int i = 0; i < 5; i++)
     {
       sc_cacheSave (cache[i].start_address);
-    }  
+    }
 
   sc_memorySave (filename);
 

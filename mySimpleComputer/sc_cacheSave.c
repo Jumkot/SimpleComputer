@@ -25,7 +25,7 @@ sc_cacheSave (int address)
       if (cache[index].str_change[i])
         {
           int value = cache[index].str[i];
-          sc_memorySet (address + i, value);      
+          sc_memorySet (address + i, value);  
         }
     }
 
