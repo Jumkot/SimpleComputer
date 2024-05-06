@@ -13,7 +13,7 @@ keySave ()
   mt_setdefaultcolor ();
 
   char filename[35] = { 0 };
-  scanf ("%34s", filename);  
+  scanf ("%34s", filename);
 
   for (int i = 0; i < 5; i++)
     {
