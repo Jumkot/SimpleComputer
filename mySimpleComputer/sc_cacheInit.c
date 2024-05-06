@@ -9,8 +9,8 @@ sc_cacheInit ()
       for (int j = 0; j < 10; j++)
         {
           cache[i].str[j] = 0;
+          cache[i].str_change[j] = 0;
         }
-      cache[i].str_change = 0;
       cache[i].str_time = 0;
     }
   return 0;

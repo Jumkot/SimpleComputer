@@ -53,8 +53,8 @@ sc_cacheLoad (int address)
         {
           sc_memoryGet (address + i, &value);
           cache[max_index].str[i] = value;
+          cache[max_index].str_change[i] = 0;
         }
-      cache[max_index].str_change = 0;
       cache[max_index].str_time = 0;
     }
 

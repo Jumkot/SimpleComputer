@@ -13,8 +13,16 @@ keySave ()
   mt_setdefaultcolor ();
 
   char filename[35] = { 0 };
-  scanf ("%34s", filename);
+  scanf ("%34s", filename);  
+
+  for (int i = 0; i < 5; i++)
+    {
+      sc_cacheSave (cache[i].start_address);
+    }  
+
   sc_memorySave (filename);
+
   rk_mytermsave ();
+  mt_delline ();
   printAll ();
 }

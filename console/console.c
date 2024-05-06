@@ -21,7 +21,7 @@ console ()
   printBoxes ();
   printKeys ();
   printTerm (-1, -1, 0, 0);
-
+  
   for (int i = 0; i < SIZE; i++)
     {
       int value;
@@ -152,7 +152,6 @@ console ()
               keyLoad ();
               break;
             case SAVE:
-              IRC (SIGUSR2);
               keySave ();
               break;
             case RESET:

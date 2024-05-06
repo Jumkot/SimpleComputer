@@ -26,9 +26,14 @@ IRC (int signum)
       sc_cacheInit ();
       actual_cell = 0;
       last_cell = 127;
-    }
-  else if (signum == SIGUSR2)
-    {
-      (tcounter == 0) ? CU () : sc_tcounterSet (tcounter - 1);
+
+      for (int i = 0; i < SIZE; i++)
+        {
+          int value;
+          sc_commandEncode (0, i, i, &value);
+          sc_memoryGet (i, &value);
+          printCell (i, WHITE, BLACK);
+        }
+      printAll ();
     }
 }

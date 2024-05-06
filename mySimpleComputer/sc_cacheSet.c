@@ -22,7 +22,7 @@ sc_cacheSet (int address, int value)
           if (cache[i].start_address == l1_address)
             {
               cache[i].str[address % 10] = value;
-              cache[i].str_change = 1;
+              cache[i].str_change[address % 10] = 1;
               cache[i].str_time = 0;
               flag = 1;
             }

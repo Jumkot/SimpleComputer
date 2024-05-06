@@ -29,7 +29,7 @@ typedef struct cache_line
 {
   int start_address; // Адрес начала строки
   int str[10];       // Строка значений из памяти
-  int str_change;    // Флаг изменения строки
+  int str_change[10]; // Флаги изменения значени строки
   int str_time; // Давность последнего использования строки
 } cache_line;
 
